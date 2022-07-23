@@ -1,0 +1,22 @@
+[
+  {
+    "deptName": "IT",
+    "deptAddress": "Asansol",
+    "deptCode": "IT-100"
+  },
+  {
+    "deptName": "CSE",
+    "deptAddress": "Kolkata",
+    "deptCode": "CSE-100"
+  },
+  {
+    "deptName": "ECE",
+    "deptAddress": "Bangalore",
+    "deptCode": "ECE-100"
+  },
+  {
+    "deptName": "MECH",
+    "deptAddress": "Nagpur",
+    "deptCode": "MECH-100"
+  }
+]
