@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService{
@@ -36,5 +37,17 @@ public class DepartmentServiceImpl implements DepartmentService{
     @Override
     public void deleteDepartmentById(Long departmentId) {
         departmentRepository.deleteAllById(Collections.singleton(departmentId));
+    }
+
+    /**
+     * findById returns an object of optional so use .get() along with it
+     */
+    @Override
+    public Department updateDepartmentNameById(Long departmentId, Department department) {
+        Department departmentFromDb = departmentRepository.findById(departmentId).get();
+        if(Objects.nonNull(departmentFromDb) && !("".equalsIgnoreCase(departmentFromDb.getDeptName()))){
+            departmentFromDb.setDeptName((department.getDeptName()));
+        }
+        return departmentRepository.save(departmentFromDb);
     }
 }
