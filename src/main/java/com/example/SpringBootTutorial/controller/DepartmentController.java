@@ -2,12 +2,14 @@ package com.example.SpringBootTutorial.controller;
 
 import com.example.SpringBootTutorial.entity.Department;
 import com.example.SpringBootTutorial.service.DepartmentService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 
+@Slf4j
 @RestController
 public class DepartmentController {
     @Autowired
@@ -15,6 +17,7 @@ public class DepartmentController {
 
     @PostMapping("/saveAll")
     public List<Department> saveMultipleDepartments(@Valid @RequestBody List<Department> departmentList) {
+        log.info("All records are inserted");
         return departmentService.saveMultipleDepartments(departmentList);
     }
 

@@ -19,7 +19,7 @@ public class Department {
     @Id
     @GeneratedValue(strategy = javax.persistence.GenerationType.AUTO)
     @Column(nullable = false)
-    private Long deptId;
+    private Long deptId; // deptId is the primary key for our table
 
     @NotNull(message = "Department name is null, Plz add it.")
     @NotBlank(message = "Department name is blank, Plz add it.")
