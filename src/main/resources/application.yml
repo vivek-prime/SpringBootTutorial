@@ -1,7 +1,16 @@
+# we can have multiple config files (profiles) as per env.
+# --- denotes new config doc in same file
+# so currently in this file we have 2 profiles: dev and prod
+
 server:
     error:
         include-message: always
     port: 9002
+
+spring:
+   profiles:
+       active: dev
+---
 spring:
     datasource:
         driver-clas-name: com.mysql.jdbc.Driver
@@ -13,4 +22,24 @@ spring:
             ddl-auto: update
         show-sql: true
 welcome:
-    message: Welcome to Learning Mr. Vivek
+    message: Welcome to Learning Mr. Vivek in Dev Env
+# adding all api endpoints in actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+---
+spring:
+    datasource:
+        driver-clas-name: com.mysql.jdbc.Driver
+        password: vivek
+        url: jdbc:mysql://localhost:3306/world  # "world" is the schemaNAme
+        username: root
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+welcome:
+    message: Welcome to Learning Mr. Vivek in Prod Env

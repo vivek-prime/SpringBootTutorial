@@ -1,0 +1,2 @@
+1.) check actuator
+http://localhost:9002/actuator
