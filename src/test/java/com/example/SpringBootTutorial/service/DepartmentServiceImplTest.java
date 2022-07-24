@@ -2,7 +2,10 @@ package com.example.SpringBootTutorial.service;
 
 import com.example.SpringBootTutorial.entity.Department;
 import com.example.SpringBootTutorial.repository.DepartmentRepository;
+import org.aspectj.lang.annotation.Before;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -30,12 +33,18 @@ class DepartmentServiceImplTest {
 
     private List<Department> mockDepartmentList() {
         List<Department> departmentList = new ArrayList<>();
-        Department department = new Department(1L, "CSE", "Asansol", "CSE-100");
+        Department department = Department.builder()
+                .deptId(1L)
+                .deptName("CSE")
+                .deptAddress("Asansol")
+                .deptCode("CSE-100")
+                .build();
         departmentList.add(department);
         return departmentList;
     }
 
     @Test
+    @DisplayName("Get Department when deptId is found")
     void testFetchDepartmentWhenItIsFound() {
         assertEquals(departmentService.fetchDepartmentById(1L).size(),1);
     }

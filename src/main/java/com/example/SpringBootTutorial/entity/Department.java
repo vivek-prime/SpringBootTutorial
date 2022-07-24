@@ -1,6 +1,7 @@
 package com.example.SpringBootTutorial.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,6 +16,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Builder
 public class Department {
     @Id
     @GeneratedValue(strategy = javax.persistence.GenerationType.AUTO)
