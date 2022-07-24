@@ -1,0 +1,16 @@
+server:
+    error:
+        include-message: always
+    port: 9002
+spring:
+    datasource:
+        driver-clas-name: com.mysql.jdbc.Driver
+        password: vivek
+        url: jdbc:mysql://localhost:3306/world
+        username: root
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+welcome:
+    message: Welcome to Learning Mr. Vivek
