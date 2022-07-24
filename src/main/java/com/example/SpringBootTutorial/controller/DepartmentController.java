@@ -5,6 +5,7 @@ import com.example.SpringBootTutorial.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -13,12 +14,12 @@ public class DepartmentController {
     private DepartmentService departmentService;
 
     @PostMapping("/saveAll")
-    public List<Department> saveMultipleDepartments(@RequestBody List<Department> departmentList) {
+    public List<Department> saveMultipleDepartments(@Valid @RequestBody List<Department> departmentList) {
         return departmentService.saveMultipleDepartments(departmentList);
     }
 
     @PostMapping("/save")
-    public Department saveDept(@RequestBody Department department) {
+    public Department saveDept(@Valid @RequestBody Department department) {
         return departmentService.saveDept(department);
     }
 
@@ -28,7 +29,7 @@ public class DepartmentController {
     }
 
     /**
-     * when using PathVariable, same var name should be used in params as in url
+     * when using "PathVariable", same var name should be used in params as in url
      */
     @GetMapping("/departments/{deptId}")
     public List<Department> fetchDepartmentById(@PathVariable("deptId") Long departmentId) {
@@ -44,5 +45,10 @@ public class DepartmentController {
     @PutMapping("/departments/{deptId}")
     public Department updateDepartmentNameById(@PathVariable("deptId") Long departmentId, @RequestBody Department department) {
         return departmentService.updateDepartmentNameById(departmentId, department);
+    }
+
+    @GetMapping("/departments/name/{deptName}")
+    public List<Department> fetchDepartmentUsingName(@PathVariable("deptName") String deptName) {
+        return departmentService.fetchDepartmentUsingName(deptName);
     }
 }
