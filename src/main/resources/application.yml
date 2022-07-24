@@ -6,7 +6,7 @@ spring:
     datasource:
         driver-clas-name: com.mysql.jdbc.Driver
         password: vivek
-        url: jdbc:mysql://localhost:3306/world
+        url: jdbc:mysql://localhost:3306/world  # "world" is the schemaNAme
         username: root
     jpa:
         hibernate:
