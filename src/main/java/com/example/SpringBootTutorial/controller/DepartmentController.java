@@ -4,6 +4,8 @@ import com.example.SpringBootTutorial.entity.Department;
 import com.example.SpringBootTutorial.service.DepartmentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -41,6 +43,7 @@ public class DepartmentController {
 
     @DeleteMapping("/departments/{deptId}")
     public String deleteDepartmentById(@PathVariable("deptId") Long departmentId) {
+        log.info("departmentId - {}", departmentId);
         departmentService.deleteDepartmentById(departmentId);
         return "Department deleted successfully";
     }
@@ -50,8 +53,12 @@ public class DepartmentController {
         return departmentService.updateDepartmentNameById(departmentId, department);
     }
 
-    @GetMapping("/departments/name/{deptName}")
-    public List<Department> fetchDepartmentUsingName(@PathVariable("deptName") String deptName) {
-        return departmentService.fetchDepartmentUsingName(deptName);
+    //    using @RequestParam
+    @GetMapping("/departments/name")
+    public ResponseEntity<List<Department>> fetchDepartmentUsingName(@RequestParam(name = "deptName", defaultValue = "CSE") String deptName) {
+        log.info("deptName - {}", deptName);
+        List<Department> departmentList = departmentService.fetchDepartmentUsingName(deptName);
+//        return ResponseEntity.ok().body(departmentList);
+        return new ResponseEntity<>(departmentList, HttpStatus.valueOf(200));
     }
 }
