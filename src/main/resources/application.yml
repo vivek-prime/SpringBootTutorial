@@ -26,6 +26,11 @@ app:
     welcome:
         message: Welcome to ${app.name} Learning Mr. Vivek in ${spring.profiles.active} Env
     list.values: one,two,three
+db:
+  connection: {connectionString: 'http://__', username: 'foo', password: 'pass'}
+  host: 127.0.0.1
+  port: 1200
+
 # adding all api endpoints in actuator
 management:
   endpoints:
