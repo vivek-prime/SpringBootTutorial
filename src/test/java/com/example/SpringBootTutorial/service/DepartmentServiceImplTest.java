@@ -3,9 +3,10 @@ package com.example.SpringBootTutorial.service;
 import com.example.SpringBootTutorial.entity.Department;
 import com.example.SpringBootTutorial.repository.DepartmentRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -18,13 +19,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @Slf4j
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class DepartmentServiceImplTest {
     @InjectMocks
     private DepartmentServiceImpl departmentService;
     @Mock
     private DepartmentRepository departmentRepository;
 
-    @BeforeEach
+    @BeforeAll
     void setUp() {
         Mockito.when(departmentRepository.findAllById(Mockito.any())).
                 thenReturn(mockDepartmentList());
