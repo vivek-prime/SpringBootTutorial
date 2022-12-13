@@ -1,12 +1,9 @@
-package com.example.SpringBootTutorial.controller;
+package com.example.SpringBootTutorial.controllerTest;
 
 import com.example.SpringBootTutorial.entity.Department;
 import com.example.SpringBootTutorial.service.DepartmentService;
-import com.example.SpringBootTutorial.service.DepartmentServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -15,8 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @WebMvcTest(DepartmentController.class)
 class DepartmentControllerTest {

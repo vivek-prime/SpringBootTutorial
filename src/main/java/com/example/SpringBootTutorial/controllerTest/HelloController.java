@@ -1,4 +1,4 @@
-package com.example.SpringBootTutorial.controller;
+package com.example.SpringBootTutorial.controllerTest;
 
 import com.example.SpringBootTutorial.config.DbConfig;
 import lombok.extern.slf4j.Slf4j;
@@ -31,5 +31,9 @@ public class HelloController {
     @GetMapping("/getList")
     public String getList(@RequestParam List<String> ids) {
         return "IDS are - " + ids;
+    }
+
+    public String fetch() {
+        return welcomeMessage;
     }
 }

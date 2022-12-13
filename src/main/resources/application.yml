@@ -13,21 +13,23 @@ spring:
 ---
 spring:
     datasource:
-        driver-clas-name: com.mysql.jdbc.Driver
+      driver-clas-name: com.mysql.jdbc.Driver
         password: vivek
         url: jdbc:mysql://localhost:3306/world  # "world" is the schemaNAme
-        username: root
+      username: root
     jpa:
-        hibernate:
-            ddl-auto: update
-        show-sql: true
+      hibernate:
+        ddl-auto: update
+      show-sql: true
 app:
-    name: SpringBootTutorial
-    welcome:
-        message: Welcome to ${app.name} Learning Mr. Vivek in ${spring.profiles.active} Env
-    list.values: one,two,three
+  name: SpringBootTutorial
+  welcome:
+    message: Welcome to ${app.name} Learning Mr. Vivek in ${spring.profiles.active} Env
+  list.values: one,two,three
+
+# this is for just learning
 db:
-  connection: {connectionString: 'http://__', username: 'foo', password: 'pass'}
+  connection: { connectionString: 'http://__', username: 'foo', password: 'pass' }
   host: 127.0.0.1
   port: 1200
 

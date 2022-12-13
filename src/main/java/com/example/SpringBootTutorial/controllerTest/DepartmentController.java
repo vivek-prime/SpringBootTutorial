@@ -1,4 +1,4 @@
-package com.example.SpringBootTutorial.controller;
+package com.example.SpringBootTutorial.controllerTest;
 
 import com.example.SpringBootTutorial.entity.Department;
 import com.example.SpringBootTutorial.service.DepartmentService;

@@ -25,8 +25,13 @@ class MyDictionaryTest {
     @Test()
     @DisplayName("Throw Null Pointer Exception when key is not found")
     public void throwException() {
-
         when(dictMock.getMeaning(anyString())).thenThrow(NullPointerException.class);
         assertThrows(NullPointerException.class, () -> dictMock.getMeaning("word"), "Key not found");
+    }
+
+    @Test()
+    public void testWelcomeMsg() {
+        String x = dictMock.getWelcomeMsg();
+        log.info("x - {}", x);
     }
 }
